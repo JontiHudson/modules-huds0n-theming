@@ -52,12 +52,13 @@ const _spacings = {
 };
 exports.theme = {
     colors: isDarkMode()
-        ? Object.assign(Object.assign({}, exports.lightColorScheme), exports.darkColorScheme) : Object.assign(Object.assign({}, exports.darkColorScheme), exports.lightColorScheme),
+        ? { ...exports.lightColorScheme, ...exports.darkColorScheme }
+        : { ...exports.darkColorScheme, ...exports.lightColorScheme },
     get colorsDark() {
-        return Object.assign(Object.assign({}, exports.lightColorScheme), exports.darkColorScheme);
+        return { ...exports.lightColorScheme, ...exports.darkColorScheme };
     },
     get colorsLight() {
-        return Object.assign(Object.assign({}, exports.darkColorScheme), exports.lightColorScheme);
+        return { ...exports.darkColorScheme, ...exports.lightColorScheme };
     },
     dimensions: _dimensions,
     fontSizes: _fontSizes,
